@@ -1,7 +1,7 @@
 import React from 'react';
 import { Lesson, Step } from '../data';
 import { CheckCircle2, Circle, Terminal, HelpCircle, Code2, AlertTriangle, Target } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
 interface LessonViewProps {

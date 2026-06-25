@@ -2,7 +2,7 @@ import React from 'react';
 import { Lesson } from '../data';
 import { ScrollArea } from './ui/scroll-area';
 import { BookOpen, Home } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { cn } from '@/lib/utils';
 
 interface SidebarProps {
   lessons: Lesson[];

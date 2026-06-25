@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { lessons, Lesson } from '../data';
 import { BookOpen, ChevronRight, ChevronLeft, Target, AlertTriangle, Code2 } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { cn } from '@/lib/utils';
 
 interface LandingPageProps {
   onSelectLesson: (id: string) => void;

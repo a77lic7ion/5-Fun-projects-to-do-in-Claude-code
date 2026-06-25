@@ -1,0 +1,6 @@
+{
+  "name": "Claude Code Windows Guide",
+  "description": "A comprehensive guide to learning and using Claude Code on Windows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

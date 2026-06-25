@@ -1,7 +1,7 @@
 import React from 'react';
 import { Lesson } from '../data';
 import { ScrollArea } from './ui/scroll-area';
-import { BookOpen, CheckCircle2, Circle } from 'lucide-react';
+import { BookOpen, Home } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 interface SidebarProps {
@@ -9,9 +9,10 @@ interface SidebarProps {
   activeLessonId: string;
   onSelectLesson: (id: string) => void;
   completedSteps: Record<string, boolean>;
+  onGoHome: () => void;
 }
 
-export function Sidebar({ lessons, activeLessonId, onSelectLesson, completedSteps }: SidebarProps) {
+export function Sidebar({ lessons, activeLessonId, onSelectLesson, completedSteps, onGoHome }: SidebarProps) {
   
   const getLessonProgress = (lesson: Lesson) => {
     const total = lesson.steps.length;
@@ -21,12 +22,21 @@ export function Sidebar({ lessons, activeLessonId, onSelectLesson, completedStep
 
   return (
     <div className="w-[280px] flex flex-col bg-[#1E293B] border-r border-[#334155] h-full shrink-0">
-      <div className="p-6 border-b border-[#334155]">
-        <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-          <BookOpen className="w-5 h-5 text-blue-500" />
-          Claude Code Guide
-        </h1>
-        <p className="text-xs text-slate-400 mt-1">Windows Edition</p>
+      <div className="p-6 border-b border-[#334155] flex flex-col gap-4">
+        <div>
+          <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            <BookOpen className="w-5 h-5 text-blue-500" />
+            Claude Code Guide
+          </h1>
+          <p className="text-xs text-slate-400 mt-1">Windows Edition</p>
+        </div>
+        <button 
+          onClick={onGoHome}
+          className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors bg-slate-800 hover:bg-slate-700 py-2 px-3 rounded-md border border-slate-700"
+        >
+          <Home className="w-4 h-4" />
+          Back to Home
+        </button>
       </div>
       <ScrollArea className="flex-1">
         <nav className="p-4 space-y-2">

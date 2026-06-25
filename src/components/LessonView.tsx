@@ -1,7 +1,6 @@
 import React from 'react';
 import { Lesson, Step } from '../data';
-import { Badge } from './ui/badge';
-import { CheckCircle2, Circle, Terminal, HelpCircle, Code2, ClipboardCopy } from 'lucide-react';
+import { CheckCircle2, Circle, Terminal, HelpCircle, Code2, AlertTriangle, Target } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { motion } from 'motion/react';
 
@@ -25,16 +24,41 @@ export function LessonView({ lesson, completedSteps, onStepComplete }: LessonVie
           {lesson.overview}
         </p>
         
-        {lesson.prerequisites.length > 0 && (
-          <div className="bg-slate-800 border-l-4 border-blue-500 rounded-r-lg p-5">
-            <h3 className="text-sm font-semibold text-slate-200 mb-3 uppercase tracking-wider">Prerequisites</h3>
-            <ul className="list-disc list-inside space-y-1.5 text-slate-300">
-              {lesson.prerequisites.map((req, i) => (
-                <li key={i}>{req}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {lesson.achievements.length > 0 && (
+            <div className="bg-slate-800 border border-[#334155] rounded-xl p-5">
+              <h3 className="flex items-center gap-2 text-sm font-semibold text-slate-200 mb-3 uppercase tracking-wider">
+                <Target className="w-4 h-4 text-emerald-400" />
+                Achievements
+              </h3>
+              <ul className="space-y-2 text-sm text-slate-300">
+                {lesson.achievements.map((req, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-emerald-500 font-bold">✓</span>
+                    {req}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          {lesson.preflightChecks.length > 0 && (
+            <div className="bg-slate-800 border-l-4 border-amber-500 rounded-r-xl p-5">
+              <h3 className="flex items-center gap-2 text-sm font-semibold text-slate-200 mb-3 uppercase tracking-wider">
+                <AlertTriangle className="w-4 h-4 text-amber-500" />
+                Pre-flight Checks
+              </h3>
+              <ul className="space-y-2 text-sm text-slate-300">
+                {lesson.preflightChecks.map((req, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0" />
+                    {req}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="space-y-8">
